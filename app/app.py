@@ -3,13 +3,15 @@ from langchain_core.prompts import ChatPromptTemplate, MessagesPlaceholder
 from langchain_ollama import ChatOllama
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage
 import json
+import os
 from get_model import get_ollama_models
 
 st.set_page_config("Trợ lý ảo C500")
 st.title("Trợ lý ảo C500")
-st.sidebar.image("../asset/favicon.png")
+favicon_path = os.path.join(os.path.dirname(__file__), 'favicon.png')
+st.sidebar.image(favicon_path)
 
-# Khởi tạo prompt system
+
 if "system_prompt" not in st.session_state:
     st.session_state.system_prompt = """
     Bạn là một trợ lý ảo thông minh và hữu ích tên là C500AI. Hãy trả lời các câu hỏi của người dùng một cách chính xác, rõ ràng và thân thiện.
